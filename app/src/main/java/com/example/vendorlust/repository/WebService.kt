@@ -11,7 +11,7 @@ import retrofit2.http.GET
 interface WebService {
 
     @GET("vendorlust.json")
-    suspend fun getVendorList(): Response<VendorList>
+    suspend fun getVendorList(): VendorList
 
 }
 
