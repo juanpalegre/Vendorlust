@@ -1,10 +1,9 @@
-package com.example.vendorlust
+package com.example.vendorlust.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import com.example.vendorlust.R
 import com.example.vendorlust.databinding.FragmentVendorDetailBinding
 
 

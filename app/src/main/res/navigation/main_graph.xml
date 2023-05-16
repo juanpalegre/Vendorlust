@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/vendorFragment"
-        android:name="com.example.vendorlust.VendorFragment"
+        android:name="com.example.vendorlust.ui.VendorFragment"
         android:label="fragment_vendor"
         tools:layout="@layout/fragment_vendor" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/vendorDetailFragment"
-        android:name="com.example.vendorlust.VendorDetailFragment"
+        android:name="com.example.vendorlust.ui.VendorDetailFragment"
         android:label="fragment_vendor_detail"
         tools:layout="@layout/fragment_vendor_detail" />
 </navigation>

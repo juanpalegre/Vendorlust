@@ -15,7 +15,7 @@ interface WebService {
 
 }
 
-class RetrofitClient {
+object RetrofitClient {
 
     val webService by lazy {
         Retrofit.Builder()
