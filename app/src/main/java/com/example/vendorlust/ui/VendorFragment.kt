@@ -1,10 +1,13 @@
 package com.example.vendorlust.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import com.example.vendorlust.R
+import com.example.vendorlust.core.Resource
 import com.example.vendorlust.data.remote.VendorDataSource
 import com.example.vendorlust.databinding.FragmentVendorBinding
 import com.example.vendorlust.presentation.VendorViewModel
@@ -23,6 +26,21 @@ class VendorFragment : Fragment(R.layout.fragment_vendor) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentVendorBinding.bind(view)
+
+        viewModel.fetchVendors().observe(viewLifecycleOwner, Observer { result->
+            when(result){
+                is Resource.Loading -> {
+                    Log.d("liveData", "Loading...")
+                }
+                is Resource.Success -> {
+                    Log.d("liveData", "${result.data}")
+                }
+                is Resource.Failure -> {
+                    Log.d("liveData", "${result.exception}")
+                }
+            }
+        })
+
     }
 
 }
