@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.example.vendorlust.R
 import com.example.vendorlust.core.Resource
 import com.example.vendorlust.data.model.Vendor
@@ -52,7 +54,12 @@ class VendorFragment : Fragment(R.layout.fragment_vendor), VendorAdapter.OnVendo
     }
 
     override fun onVendorClick(vendor: Vendor) {
-        Log.d("Vendor", "OnVendorClick: $vendor")
+        val action = VendorFragmentDirections.actionVendorFragmentToVendorDetailFragment(
+            vendor.heroImage.url,
+            vendor.displayName,
+            vendor.description
+        )
+        findNavController().navigate(action)
     }
 
 }
