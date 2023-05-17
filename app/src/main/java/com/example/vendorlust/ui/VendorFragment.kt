@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -35,12 +36,17 @@ class VendorFragment : Fragment(R.layout.fragment_vendor), VendorAdapter.OnVendo
             when(result){
                 is Resource.Loading -> {
                     binding.progressBar.visibility = View.VISIBLE
-                    Log.d("liveData", "Loading...")
+                    Log.d("livedata", "Loading...")
                 }
                 is Resource.Success -> {
                     binding.progressBar.visibility = View.GONE
                     binding.recyclerMain.adapter = VendorAdapter(result.data, this@VendorFragment)
-                    Log.d("liveData", "${result.data}")
+                    binding.etSearch.addTextChangedListener { userFilter ->
+                        val vendorsFiltered = result.data.filter { vendor ->
+                            vendor.displayName.lowercase().startsWith(userFilter.toString().lowercase())
+                        }
+                        binding.recyclerMain.adapter = VendorAdapter(vendorsFiltered, this@VendorFragment)
+                    }
                 }
                 is Resource.Failure -> {
                     binding.progressBar.visibility = View.GONE

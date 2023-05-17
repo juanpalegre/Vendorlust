@@ -11,7 +11,7 @@ import com.example.vendorlust.data.model.Vendor
 import com.example.vendorlust.databinding.ItemVendorBinding
 
 class VendorAdapter(
-    private val vendorList: List<Vendor>,
+    private var vendorList: List<Vendor>,
     private val itemClickListener: OnVendorClickListener
 ): RecyclerView.Adapter<BaseViewHolder<*>>() {
 
@@ -39,6 +39,11 @@ class VendorAdapter(
 
     override fun getItemCount(): Int {
         return vendorList.size
+    }
+
+    fun updateVendorList(vendorList: List<Vendor>){
+        this.vendorList = vendorList
+        notifyDataSetChanged()
     }
 
     private inner class VendorViewHolder(val binding: ItemVendorBinding, val context: Context): BaseViewHolder<Vendor>(binding.root){
