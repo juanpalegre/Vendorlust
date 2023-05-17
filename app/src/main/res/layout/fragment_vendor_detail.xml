@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VendorDetailFragment">
+    tools:context=".ui.VendorDetailFragment">
 
     <ImageView
         android:id="@+id/vendor_image"
@@ -93,7 +93,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txt_vendor_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
@@ -112,7 +112,7 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/txt_vendor_name"
         tools:text="Description of the movie overview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

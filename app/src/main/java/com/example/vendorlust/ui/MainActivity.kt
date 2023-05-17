@@ -1,7 +1,8 @@
-package com.example.vendorlust
+package com.example.vendorlust.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.vendorlust.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
