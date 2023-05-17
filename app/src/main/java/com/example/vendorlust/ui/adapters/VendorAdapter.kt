@@ -44,6 +44,7 @@ class VendorAdapter(
     private inner class VendorViewHolder(val binding: ItemVendorBinding, val context: Context): BaseViewHolder<Vendor>(binding.root){
         override fun bind(item: Vendor) {
             Glide.with(context).load(item.heroImage.url).centerCrop().into(binding.imgAvatar)
+            binding.txtName.text = item.displayName
         }
 
     }
